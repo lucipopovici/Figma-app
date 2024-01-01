@@ -40,11 +40,29 @@ const Plugin = () => {
   };
 
   const handleButtonClick = async () => {
-    // Implement your logic to interact with the AI or any other service here
-    // For demonstration, let's just return the input text in uppercase
-    const aiResponse = `AI Response: ${inputText.toUpperCase()}`;
-    setResultText(aiResponse);
+    // Construct the request body with the user's input
+    const requestBody = {
+      layers: [inputText], // Adjust according to how you want to structure the request
+    };
+  
+    // Make the POST request to your backend
+  const response = await fetch('https://figma-app-two.vercel.app/api/completion/route', { 
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestBody),
+  });
+  
+    if (response.ok) {
+      const data = await response.text(); // or response.json() if your backend sends JSON
+      setResultText(`AI Response: ${data}`);
+    } else {
+      // Handle errors
+      console.error('Failed to fetch AI response');
+    }
   };
+  
 
   // JSX return for the component
   return (
