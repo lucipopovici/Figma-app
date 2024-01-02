@@ -1,6 +1,8 @@
 {
-    "rewrites": [
-      { "source": "/api/completion/route", "destination": "/app/api/completion/route.ts" }
-    ]
-  }
-  
+  "rewrites": [
+    {
+      "source": "/api/completion/route",
+      "destination": "/app/api/completion/route.ts"
+    }
+  ]
+}
