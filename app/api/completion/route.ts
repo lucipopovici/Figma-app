@@ -19,7 +19,7 @@ export const runtime = "edge";
 // https://platform.openai.com/docs/guides/gpt/chat-completions-api
 const systemMessage = {
   role: "system",
-  content: `Type random numbers`,
+  content: `Add random numbers`,
 } as const;
 
 // This is used to format the message that the user sends to the API. Note we should
